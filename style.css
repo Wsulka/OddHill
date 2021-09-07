@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
 
 body {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
 }
 
@@ -13,8 +22,46 @@ body {
 #CONTAINERS
 ----------------*/
 
+
+
 main {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    width: 1290px;
+}
+
+.container {
+    min-width: 100%;
+    min-height: 560px;
+    border: 1px dotted blue;
+}
+
+.bookshelf-container {
+
+}
+
+.cta-container {
+    background: #F9F1FA;
+}
+
+.faq-container {
+    background: #F2F2F2;
+}
+
+footer {
+    background: #000000;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    padding: 0px 30px;
+}
+
+.hero-container {
+    background: url(/images/heroBG.jpg);
 }
 
 
