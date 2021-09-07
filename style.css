@@ -27,7 +27,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    width: 1290px;
+    width: 100%;
 }
 
 .container {
@@ -36,9 +36,23 @@ main {
     border: 1px dotted blue;
 }
 
-.bookshelf-container {
+.bookshelf {
+    width: 1290px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
 
 }
+
+.bookshelf-container {
+
+    display: flex;
+    flex-direction: column;
+    align-content: center; 
+    align-items:center 
+}
+
+
 
 .cta-container {
     background: #F9F1FA;
@@ -65,7 +79,12 @@ header {
 }
 
 
+.testbook {
+    width: 190px;
+    height: 310px;
+    background: blue;
 
+}
 
 /*----------------
 #HEADINGS
