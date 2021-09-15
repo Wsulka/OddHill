@@ -27,13 +27,16 @@ body {
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
 .container {
-    min-width: 100%;
+    width: 1290px;
     min-height: 560px;
     border: 1px dotted blue;
+
+
 }
 
 .bookshelf {
@@ -45,17 +48,25 @@ main {
 }
 
 .bookshelf-container {
-
     display: flex;
     flex-direction: column;
-    align-content: center; 
-    align-items:center 
+    justify-content: center;
+    align-items: center;
+
 }
 
 
 
 .cta-container {
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 560px;
+    column-gap: 30px;
     background: #F9F1FA;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .faq-container {
@@ -75,7 +86,7 @@ header {
 }
 
 .hero-container {
-    background: url(/images/heroBG.jpg);
+    background: url(/images/heroBG.png);
 }
 
 
@@ -87,7 +98,16 @@ header {
 }
 
 /*----------------
-#HEADINGS
+#HEADINGS AND 
+TYPOGRAPHY
+----------------*/
+
+ 
+
+
+
+/*----------------
+#HEADER STYLING
 ----------------*/
 
 
@@ -95,16 +115,49 @@ header {
 
 
 /*----------------
-#TYPOGRAPHY
+#FOOTER STYLING
 ----------------*/
-
-
 
 
 
 /*----------------
-#MISC
+#IMAGES
 ----------------*/
 
+#cta-image {
+    grid-column-start: 7;
+    grid-column-end: 12;
+}
 
 
+
+
+
+/*-----------------
+TEXT ELEMENTS
+-----------------*/
+
+.cta-text {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+
+
+
+
+/*-----------------
+SCROLLING 
+BOOKSHELF 
+-----------------*/
+
+.bookshelf {
+overflow-x: scroll;
+overflow-y: hidden;
+white-space: nowrap;
+}
+
+.testbook {
+display: inline-block;
+margin-right: 30px;
+}
