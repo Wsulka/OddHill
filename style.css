@@ -157,7 +157,26 @@ overflow-y: hidden;
 white-space: nowrap;
 }
 
-.testbook {
+.book {
 display: inline-block;
 margin-right: 30px;
 }
+
+
+.book__author {
+    
+}
+
+.book__image {
+
+}
+
+.book__score {
+
+
+}
+
+.book__title {
+
+}
+
