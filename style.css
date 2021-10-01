@@ -39,13 +39,7 @@ main {
 
 }
 
-.bookshelf {
-    width: 1290px;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
 
-}
 
 .bookshelf-container {
     display: flex;
@@ -151,17 +145,19 @@ SCROLLING
 BOOKSHELF 
 -----------------*/
 
-.bookshelf {
-overflow-x: scroll;
-overflow-y: hidden;
-white-space: nowrap;
-}
+
 
 .book {
-display: inline-block;
-margin-right: 30px;
+    display: inline-block;
+    margin-right: 30px;
 }
 
+.bookshelf {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+        
+
+}
 
 .book__author {
     
