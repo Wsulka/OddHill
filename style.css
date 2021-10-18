@@ -75,7 +75,7 @@ header {
     display: flex;
     justify-content: space-between;
     height: 80px;
-    width: 100%;
+    width: 100vw;
     padding: 0px 30px;
 }
 
@@ -142,7 +142,8 @@ TEXT ELEMENTS
 
 /*-----------------
 SCROLLING 
-BOOKSHELF 
+BOOKSHELF &
+BOOKS
 -----------------*/
 
 
@@ -153,10 +154,20 @@ BOOKSHELF
 }
 
 .bookshelf {
+    max-width: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
         
+}
 
+.bookshelf::webkit-scrollbar {
+    display: none;
 }
 
 .book__author {
@@ -174,5 +185,47 @@ BOOKSHELF
 
 .book__title {
 
+}
+
+
+
+
+
+/*-----------------
+RESIZING FOR MOBILE
+-----------------*/
+@media screen and (max-width: 761px) {
+
+    .container {
+        width: 100vw;
+        max-width: 100vw;
+        min-height: 560px;
+        border: 1px dotted blue;
+    
+    
+    }
+
+    .cta-container {
+
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 100vw;
+        column-gap: 30px;
+        background: #F9F1FA;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    #cta-image {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 1;
+    }
+
+    #cta-image img {
+        max-width: 312px ;
+    }
+
+    
 }
 
