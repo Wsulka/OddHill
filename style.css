@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+
+/*
+
+
+
+*/
+
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -16,11 +24,13 @@ body {
     line-height: 24px;
 }
 
-
+ul {
+    list-style: none;
+}
 
 
 /*----------------
-#CONTAINERS
+GENERAL CONTAINERS
 ----------------*/
 
 
@@ -35,35 +45,16 @@ main {
 
 .container {
     width: 1290px;
-    min-height: 560px;
     border: 1px dotted blue;
-
-
 }
 
 
 
-.bookshelf-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
 
 
 
-.cta-container {
 
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 560px;
-    column-gap: 30px;
-    background: #F9F1FA;
-    align-items: center;
-    justify-content: center;
-    
-}
+
 
 .faq-container {
     background: #F2F2F2;
@@ -81,10 +72,6 @@ header {
     padding: 0px 30px;
 }
 
-.hero-container {
-    background: url(/images/heroBG.png);
-}
-
 
 .testbook {
     width: 190px;
@@ -94,7 +81,7 @@ header {
 }
 
 /*----------------
-#HEADINGS AND 
+HEADINGS AND 
 TYPOGRAPHY
 ----------------*/
 
@@ -116,11 +103,16 @@ h3 {
     line-height: 32px;
     font-weight: bold;
 } 
+/*h4 is not specified in design document but there are unspecified headings in the footer
+so Imma use h4 for them */
+h4 {
+
+}
 
 
 
 /*----------------
-#HEADER STYLING
+HEADER SECTION
 ----------------*/
 
 
@@ -152,34 +144,130 @@ nav {
     align-items: center;
 }
 
+/*----------------
+HERO SECTION
+----------------*/
+
+.hero__container {
+min-height: 560px;
+background: url(/images/heroBG.png);
+display: grid;
+column-gap: 30px;
+grid-template-columns: repeat(12, 1fr);
+align-items: center;
+}
+
+.hero__content {
+
+
+    grid-column-start: 2;
+    grid-column-end: 7;
+}
+
+.hero__header{
+    color: white;
+
+}
+
+.hero__description {
+color: #FFFFFF;
+}
 
 
 /*----------------
-#FOOTER STYLING
+CTA SECTION
 ----------------*/
 
+.cta__container {
+
+    display: grid;
+    height: 560px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 140px 280px 140px;
+    column-gap: 30px;   
+    column-gap: 30px;
+    background: #F9F1FA;
+    align-items: center;
+    justify-content: center;
+    
+}
 
 
-/*----------------
-#IMAGES
-----------------*/
-
-#cta-image {
+.cta__image {
     grid-column-start: 7;
     grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+
+/*----------------
+BOOKSHELF SECTION
+(POPULAR / NEW BOOKS) 
+----------------*/
+
+/* Most section containers are grid containers, but here I chose a different approach;
+I made a bookshelf which renders a number of books in javascript, and this bookshelf is in itself a grid container.
+So the bookshelf__container block is a flexbox container instead, I felt it would perhaps be too messy with a grid within a grid */
+.bookshelf__container {
+    min-height: 678px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    padding:
 }
 
 
 
+
+/*----------------
+FAQ SECTION
+----------------*/
+
+.faq__container {
+    display: grid;
+    height: 560px;
+    grid-template-columns: repeat(12, 1fr);
+    
+    column-gap: 30px;
+    background: #F9F1FA;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq__questions{
+    height: 560px;
+    width: 645px;
+    border: 1px solid red;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.faq__illustration{
+    grid-column-start: 7;
+    grid-column-end: 12;
+}
 
 
 /*-----------------
 TEXT ELEMENTS
 -----------------*/
 
-.cta-text {
-    grid-column-start: 3;
+.cta__content {
+    grid-column-start: 2;
     grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    column-gap: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 
@@ -235,6 +323,48 @@ BOOKS
 
 
 
+/*----------------
+FOOTER STYLING
+----------------*/
+.footer__bottom {
+    display: inline-block;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.footer__content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 4fr 1fr;    
+    column-gap: 30px;
+}
+
+.footer__icon {
+    padding-left: 20px;
+}
+
+.footer__links{
+    grid-column-start: 2;
+    grid-column-end: 8;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__section {
+    display: block;
+}
+
+
+.footer__social {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 9;
+    grid-column-end: 12;
+}
+
+
 
 
 /*-----------------
@@ -251,27 +381,42 @@ RESIZING FOR MOBILE
     
     }
 
-    .cta-container {
-
+    .cta__container {
+        
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: 100vw;
+        grid-template-rows: 291px 290px;
         column-gap: 30px;
         background: #F9F1FA;
         align-items: center;
         justify-content: center;
         
     }
-    #cta-image {
+
+    
+    .cta__image {
+        max-width: 312px ;
         grid-column-start: 2;
         grid-column-end: 4;
         grid-row-start: 1;
+        grid-row-end: 1;
     }
 
-    #cta-image img {
-        max-width: 312px ;
-    }
 
+    .cta__content {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 2;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    
+    
+
+    
     
 }
 
