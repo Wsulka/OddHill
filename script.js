@@ -39,7 +39,9 @@ let bookShelf = function (amount, placement) {
     }
 }
 
-bookShelf(9, "bookshelf__popular");
+
+/* as arguments: write how many books you want and which classname you want them appended to */
+bookShelf(6, "bookshelf__popular");
 
 
 bookShelf(6, "bookshelf__new");

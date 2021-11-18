@@ -3,6 +3,12 @@
 
 /*
 
+OBS 
+
+ÄNDRA HEADINGS TILL REM?
+
+
+
 
 
 */
@@ -20,7 +26,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "Roboto", sans-serif;    
+    font-family: "Roboto", sans-serif; 
+    font-size: 16px;   
     line-height: 24px;
 }
 
@@ -42,23 +49,20 @@ main {
     width: 100%;
     border: 1px dotted red;
 }
+ 
 
+    /* all sections except the header and footer
+    is enclosed in a .container div so I can conveniently adapt everything for tablet and mobile without changing every section individually
+    */
 .container {
     width: 1290px;
     border: 1px dotted blue;
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: repeat(12, 1fr);
 }
 
 
-
-
-
-
-
-
-
-.faq-container {
-    background: #F2F2F2;
-}
 
 footer {
     background: #000000;
@@ -73,13 +77,6 @@ header {
 }
 
 
-.testbook {
-    width: 190px;
-    height: 310px;
-    background: blue;
-
-}
-
 /*----------------
 HEADINGS AND 
 TYPOGRAPHY
@@ -88,14 +85,16 @@ TYPOGRAPHY
 /* font family specified in body, it's Roboto! */
 
 h1 {
-    size: 36px;
+    font-size: 56px;
+    line-height: 64px;
     font-weight: bold;
-    line-height: 36px;
+
 }
 
 h2 {
-    size: 28px;
-    line-height: 32px;
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: bold;
 }
 
 h3 {
@@ -107,6 +106,12 @@ h3 {
 so Imma use h4 for them */
 h4 {
 
+}
+
+.preamble {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
 }
 
 
@@ -149,19 +154,17 @@ HERO SECTION
 ----------------*/
 
 .hero__container {
-min-height: 560px;
+
 background: url(/images/heroBG.png);
-display: grid;
-column-gap: 30px;
-grid-template-columns: repeat(12, 1fr);
+
 align-items: center;
 }
 
 .hero__content {
 
-
+    padding: 129px 0px;
     grid-column-start: 2;
-    grid-column-end: 7;
+    grid-column-end: 11;
 }
 
 .hero__header{
@@ -169,8 +172,9 @@ align-items: center;
 
 }
 
-.hero__description {
-color: #FFFFFF;
+.hero__preamble {
+    color: #FFFFFF;
+    padding: 12px 0px;
 }
 
 
@@ -179,25 +183,37 @@ CTA SECTION
 ----------------*/
 
 .cta__container {
-
-    display: grid;
-    height: 560px;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 140px 280px 140px;
     column-gap: 30px;   
     column-gap: 30px;
     background: #F9F1FA;
     align-items: center;
     justify-content: center;
+
     
 }
+
+.cta__content {
+
+    grid-column-start: 2;
+    grid-column-end: 6;
+    padding: 129px 0px;
+    column-gap: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 
 .cta__image {
     grid-column-start: 7;
     grid-column-end: 12;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    position: relative;
+    bottom: 63px;
+}
+
+.cta__span {
+    padding: 12px 0px 24px 0px;
 }
 
 
@@ -206,17 +222,61 @@ BOOKSHELF SECTION
 (POPULAR / NEW BOOKS) 
 ----------------*/
 
-/* Most section containers are grid containers, but here I chose a different approach;
-I made a bookshelf which renders a number of books in javascript, and this bookshelf is in itself a grid container.
-So the bookshelf__container block is a flexbox container instead, I felt it would perhaps be too messy with a grid within a grid */
-.bookshelf__container {
-    min-height: 678px;
+
+
+.bookshelf__header {
+    padding-top: 75px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.book {
+    width: 15%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;    
-    padding:
+    margin-right: 30px;
 }
+
+.bookshelf {
+    width: 100%;
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 12;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 197px;
+    padding-left: 30px;
+}
+
+.bookshelf::webkit-scrollbar {
+    display: none;
+
+}
+
+.book__author {
+    
+}
+
+.book__image {
+   min-width: 100%;
+}
+
+.book__score {
+
+
+}
+
+.book__title {
+    display: block;
+    white-space: normal;
+}
+
 
 
 
@@ -224,12 +284,13 @@ So the bookshelf__container block is a flexbox container instead, I felt it woul
 /*----------------
 FAQ SECTION
 ----------------*/
+.faq__answer {
+    display: block;
+    width: 100%;
+}
+
 
 .faq__container {
-    display: grid;
-    height: 560px;
-    grid-template-columns: repeat(12, 1fr);
-    
     column-gap: 30px;
     background: #F9F1FA;
     align-items: center;
@@ -237,21 +298,42 @@ FAQ SECTION
 }
 
 .faq__questions{
-    height: 560px;
-    width: 645px;
+
+    padding: 94px 0px;
+    width: 630px;
     border: 1px solid red;
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 4;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    
 
 }
 
+.faq__expand{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid purple;
+}
+
 .faq__illustration{
-    grid-column-start: 7;
+    grid-column-start: 8;
     grid-column-end: 12;
+    
+}
+
+.faq__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 21px 0px;
+    width: 100%;
+    border-top: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
 }
 
 
@@ -259,16 +341,7 @@ FAQ SECTION
 TEXT ELEMENTS
 -----------------*/
 
-.cta__content {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 2;
-    column-gap: 30px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
+
 
 
 
@@ -279,47 +352,6 @@ SCROLLING
 BOOKSHELF &
 BOOKS
 -----------------*/
-
-
-
-.book {
-    display: inline-block;
-    margin-right: 30px;
-}
-
-.bookshelf {
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-        
-}
-
-.bookshelf::webkit-scrollbar {
-    display: none;
-}
-
-.book__author {
-    
-}
-
-.book__image {
-
-}
-
-.book__score {
-
-
-}
-
-.book__title {
-
-}
 
 
 
@@ -335,8 +367,7 @@ FOOTER STYLING
 }
 
 .footer__content {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+
     grid-template-rows: 4fr 1fr;    
     column-gap: 30px;
 }
@@ -368,14 +399,71 @@ FOOTER STYLING
 
 
 /*-----------------
+RESIZING FOR TABLET
+-----------------*/
+@media screen and (max-width: 1289px) {
+
+
+    .container {
+        width: 762px;
+        border: 1px dotted blue;
+    }
+
+    .cta__image {
+        max-width: 392px;
+        
+    }
+
+    /* Book size is recalculated to show 4 books in tablet mode. In mobile it's back to 6 books again, with one book partially off-screen to the right to indicate 
+    there's more if user swipes left!  */
+    .book {
+        min-width: 22%;
+
+    }
+
+
+
+
+
+/*-----------------
+HEADINGS & TYPES
+RESIZING FOR MOBILE
+-----------------*/
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: bold;
+
+    }
+    
+h2 {
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: bold;
+    }
+    
+h3 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: bold;
+} 
+
+
+
+/*-----------------
 RESIZING FOR MOBILE
 -----------------*/
 @media screen and (max-width: 761px) {
 
+    .bookshelf {
+        width: 100vw;
+    }
+
     .container {
+        grid-template-columns: repeat(5, 1fr);
         width: 100vw;
         max-width: 100vw;
-        min-height: 560px;
+        padding: 0px 18px;
         border: 1px dotted blue;
     
     
@@ -383,9 +471,7 @@ RESIZING FOR MOBILE
 
     .cta__container {
         
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: 291px 290px;
+        
         column-gap: 30px;
         background: #F9F1FA;
         align-items: center;
@@ -395,27 +481,66 @@ RESIZING FOR MOBILE
 
     
     .cta__image {
+        order: -1;
         max-width: 312px ;
         grid-column-start: 2;
-        grid-column-end: 4;
-        grid-row-start: 1;
-        grid-row-end: 1;
+        grid-column-end: 6;
+        left: -30px;
+
+
     }
 
 
     .cta__content {
-        grid-column-start: 2;
-        grid-column-end: 4;
-        grid-row-start: 2;
-        grid-row-end: 2;
+        
+        grid-column-start: 1;
+        grid-column-end: 6;
+        position: relative;
+        bottom: 70px;
         display: flex;
         align-items: center;
         flex-direction: column;
+        padding: 0px 0px 58px 0px;
     }
     
-    
-    
 
+    .faq__illustration {
+        display: none;
+    }
+
+    .faq__questions {
+
+        width: 100%;
+        grid-column-start: 1;
+        grid-column-end: 12;
+    }
+
+    .header__nav {
+        display: none;
+    }
+
+    /*-----------------
+    HEADINGS & TYPES
+    RESIZING FOR MOBILE
+    -----------------*/
+    h1 {
+        font-size: 36px;
+        line-height: 40px;
+        font-weight: bold;
+    
+    }
+    
+    h2 {
+        font-size: 28px;
+        line-height: 32px;
+        font-weight: bold;
+    }
+    
+    h3 {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: bold;
+    } 
     
     
 }
